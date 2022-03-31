@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Doit_Java/Doit_Java.iml" filepath="$PROJECT_DIR$/Doit_Java/Doit_Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_programmers_f1/Java_programmers_f1.iml" filepath="$PROJECT_DIR$/Java_programmers_f1/Java_programmers_f1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-mini-project_bank/java-mini-project_bank.iml" filepath="$PROJECT_DIR$/java-mini-project_bank/java-mini-project_bank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-mini-project_stu-grade/java-mini-project_stu-grade.iml" filepath="$PROJECT_DIR$/java-mini-project_stu-grade/java-mini-project_stu-grade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java-ss.iml" filepath="$PROJECT_DIR$/.idea/java-ss.iml" />
+    </modules>
+  </component>
+</project>
