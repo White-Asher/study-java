@@ -20,7 +20,6 @@ public class CastingTest {
 //        Person person = new Person("test");
         person.name = "JYJY";
         System.out.println(person.name);
-//        person.age = "24"; // 컴파일 오류 ~!
-
+//        person.age = "26"; // 컴파일 오류 ~!
     }
 }
