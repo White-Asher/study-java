@@ -1,5 +1,8 @@
 package p476;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class MultiCatch_3 {
     public static void main(String[] args) {
         // 1.catch 블록을 각각 처리했을 때
@@ -19,5 +22,26 @@ public class MultiCatch_3 {
         } catch (ArithmeticException | NumberFormatException e){
             System.out.println("예외가 발생했습니다");
         }
+
+        InputStreamReader is = null;
+        try {
+            is = new InputStreamReader(System.in);
+            System.out.println(is.read());
+        } catch (IOException e){
+            // 예외 처리
+        } finally {
+            if(is != null){
+                try {
+                    is.close();
+                } catch (IOException e){
+                    //예외처리
+                }
+            }
+        }
+//        try (inputStreamReader is = new InputStreamReader(System.in);){
+//            System.out.println(is.read());
+//        } catch (IOException e){
+//            //  예외처리
+//        }
     }
 }

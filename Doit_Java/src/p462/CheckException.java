@@ -1,13 +1,13 @@
 package p462;
 
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-
-class A implements Cloneable{
-    protected Object clone() throws CloneNotSupportedException{
-        return super.clone();
-    }
-}
+//import java.io.FileInputStream;
+//import java.io.InputStreamReader;
+//
+//class A implements Cloneable{
+//    protected Object clone() throws CloneNotSupportedException{
+//        return super.clone();
+//    }
+//}
 //public class CheckException {
 //    public static void main(String[] args) {
 //        // 1.InterruptedException
