@@ -1,10 +1,10 @@
 package p490;
 
 class A{
-    void abc(){
-        bcd();
+    void aaa(){
+        bbb();
     }
-    void bcd(){
+    void bbb(){
         try{
             Class cls = Class.forName("java.lang.Object");
             Thread.sleep(1000);
@@ -14,14 +14,14 @@ class A{
     }
 }
 class B{
-    void abc(){
+    void aaa(){
         try{
-            bcd();
+            bbb();
         } catch (InterruptedException |ClassNotFoundException e){
             // 예외 처리 구문
         }
     }
-    void bcd() throws InterruptedException, ClassNotFoundException{
+    void bbb() throws InterruptedException, ClassNotFoundException{
         Class cls = Class.forName("java.lang.Object");
     }
 }
