@@ -12,7 +12,7 @@ public class PrintCalendar{
             System.out.println("년도를 입력하세요.(해당 메뉴를 종료하려면 -1을 입력하세요)");
             year = scan.nextInt();
             if(year == -1) {
-                System.out.println("프로그램을 종료합니다.");
+                System.out.println("달력 출력 메뉴를 종료합니다.");
                 break;
             }
             System.out.println("달을 입력하세요.");
