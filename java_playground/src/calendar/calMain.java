@@ -2,33 +2,60 @@ package calendar;
 
 import java.util.Scanner;
 
-public class calMain {
-    public static void main(String[] args) {
+class PrintCalendar{
+    public void inputYearMonth(){
         Scanner scan = new Scanner(System.in);
+        int year = 0;
+        int month = 0;
 
-        System.out.println("반복 횟수를 입력하세요:");
-        int count = scan.nextInt();
+        while(true){
+            System.out.println("년도를 입력하세요.(해당 메뉴를 종료하려면 -1을 입력하세요)");
+            year = scan.nextInt();
+            System.out.println("달을 입력하세요.(해당 메뉴를 종료하려면 -1을 입력하세요)");
+            month = scan.nextInt();
 
-        int[] result = new int[count];
-        int[] month = new int[count];
-
-        int i =0;
-        while(i != count){
-            System.out.println("달을 입력하세요.");
-            month[i] = scan.nextInt();
-            if(month[i]>=1 && month[i] <=12){
-                if(month[i]%2 == 0){
-                    if(month[i] == 2) result[i] = 28;
-                    else result[i] = 31;
-                } else result[i] = 30;
-                System.out.println(month[i] + "월은 " + result[i] + "일까지 있습니다.");
-            }
-
-            else {
-                i--;
+            if(month>=1 && month <=12){
+                int monthLength = lastDay(year, month);
+                int firstDayResult = firstDay(year);
+                printCal(firstDayResult, monthLength);
+            } else if(year == -1 || month == -1){
+                System.out.println("프로그램을 종료합니다.");
+                break;
+            } else {
                 System.out.println("잘못 입력하였습니다.");
             }
         }
+    }
+
+    void printCal(int firstDayResult, int monthLength){
+        System.out.println(" 일 월 화 수 목 금 토");
+        System.out.println("--------------------");
+    }
+
+    int lastDay(int y, int m){
+        if(m%2 == 0){
+            if(m == 2) return 30;
+            else return 31;
+        } else {
+            if(y % 4 == 0) return 29;
+            else return 28;
+        }
+    }
+
+    int firstDay(int year){
+        int sum = 0;
+        for(int i = 1583; i<year; i++){
+            if(year % 4 == 0){
+                sum += 2;
+            } else sum += 1;
+        }
+        return sum / 7;
+    }
+}
+
+public class calMain {
+    public static void main(String[] args) {
+
 
 
 //        System.out.println(" 일 월 화 수 목 금 토");
@@ -48,3 +75,32 @@ public class calMain {
 
     }
 }
+
+/*
+class Gargabe{
+    public void asdasdsa(){
+        public void print(){
+            Scanner scan = new Scanner(System.in);
+            int result =0;
+            int month =0;
+
+            while(true){
+                System.out.println("달을 입력하세요.");
+                month = scan.nextInt();
+                if(month>=1 && month <=12){
+                    if(month%2 == 0){
+                        if(month == 2) result = 28;
+                        else result = 31;
+                    } else result = 30;
+                    System.out.println(month + "월은 " + result + "일까지 있습니다.");
+                } else if(month == -1){
+                    System.out.println("프로그램을 종료합니다.");
+                    break;
+                } else {
+                    System.out.println("잘못 입력하였습니다.");
+                }
+            }
+        }
+    }
+}
+ */
