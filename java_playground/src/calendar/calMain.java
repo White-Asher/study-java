@@ -16,9 +16,14 @@ class PrintCalendar{
 
             if(month>=1 && month <=12){
                 int monthLength = lastDay(year, month);
-                int firstDayResult = yearFirstDay(year, monthLength);
+                System.out.println("monthLength: "+monthLength);
+                int firstDay = yearFirstDay(year);
+                System.out.println("yearFirstDay: "+firstDay);
+                int firstMonthDay = monthFirstDay(year, firstDay, month);
+                System.out.println("firstMonthDay: "+firstMonthDay);
+                System.out.println(firstMonthDay);
 
-                printCal(firstDayResult, monthLength);
+                printCal(firstMonthDay, monthLength);
             } else if(year == -1 || month == -1){
                 System.out.println("프로그램을 종료합니다.");
                 break;
@@ -36,7 +41,6 @@ class PrintCalendar{
             System.out.printf("   ");
             count++;
         }
-
         for(int i=1; i<=monthLength;i++){
             if(i<10) System.out.printf("  %d",i);
             else System.out.printf(" %d",i);
@@ -47,16 +51,22 @@ class PrintCalendar{
     }
 
     int lastDay(int y, int m){
-        if(m % 2 == 0 ){
-            if(m == 2){
-                if(y % 4 == 0 && y % 100 !=0  || y % 400 == 0) return 29;
-                else return 28;
-            }
-            else return 30;
-        }else return 31;
+        int result = 0;
+        switch (m){
+            case 2:
+                if(y % 4 == 0 && y % 100 !=0  || y % 400 == 0) result = 29;
+                else result = 28;
+                break;
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                result = 31;
+                break;
+            case 4: case 6: case 9: case 11:
+                result = 30;
+                break;
+            }return result;
     }
 
-    int yearFirstDay(int year ,int monthLength){
+    int yearFirstDay(int year){
         int sum = 4;
         for(int i = 1970; i < year; i++){
             if(i % 4 == 0 && i % 100 !=0  || i % 400 == 0){
@@ -66,13 +76,20 @@ class PrintCalendar{
         }
         return sum % 7;
     }
-}
 
-//    int monthSum = 0;
-//        for(int j = 1;j<=month; j++){
-//                int temp = lastDay(year, month);
-//                monthSum += (temp % 7);
-//                }
+    int monthFirstDay(int year, int firstDayResult,int month){
+        int monthSum = 0;
+        if (month == 1){
+            return firstDayResult;
+        } else{
+            for(int j = 1; j<month; j++){
+                int temp = lastDay(year, j);
+                monthSum += (temp % 7);
+            }
+            return (firstDayResult+monthSum)%7;
+        }
+    }
+}
 
 public class calMain {
     public static void main(String[] args) {
