@@ -16,7 +16,8 @@ class PrintCalendar{
 
             if(month>=1 && month <=12){
                 int monthLength = lastDay(year, month);
-                int firstDayResult = firstDay(year);
+                int firstDayResult = yearFirstDay(year, monthLength);
+
                 printCal(firstDayResult, monthLength);
             } else if(year == -1 || month == -1){
                 System.out.println("프로그램을 종료합니다.");
@@ -30,48 +31,53 @@ class PrintCalendar{
     void printCal(int firstDayResult, int monthLength){
         System.out.println(" 일 월 화 수 목 금 토");
         System.out.println("--------------------");
+        int count = 0;
+        for(int i=0;i<firstDayResult;i++) {
+            System.out.printf("   ");
+            count++;
+        }
+
+        for(int i=1; i<=monthLength;i++){
+            if(i<10) System.out.printf("  %d",i);
+            else System.out.printf(" %d",i);
+            count++;
+            if(count % 7 == 0) System.out.println();
+        }
+        System.out.println();
     }
 
     int lastDay(int y, int m){
-        if(m%2 == 0){
-            if(m == 2) return 30;
-            else return 31;
-        } else {
-            if(y % 4 == 0) return 29;
-            else return 28;
-        }
+        if(m % 2 == 0 ){
+            if(m == 2){
+                if(y % 4 == 0 && y % 100 !=0  || y % 400 == 0) return 29;
+                else return 28;
+            }
+            else return 30;
+        }else return 31;
     }
 
-    int firstDay(int year){
-        int sum = 0;
-        for(int i = 1583; i<year; i++){
-            if(year % 4 == 0){
+    int yearFirstDay(int year ,int monthLength){
+        int sum = 4;
+        for(int i = 1970; i < year; i++){
+            if(i % 4 == 0 && i % 100 !=0  || i % 400 == 0){
                 sum += 2;
-            } else sum += 1;
+            }
+            else sum += 1;
         }
-        return sum / 7;
+        return sum % 7;
     }
 }
 
+//    int monthSum = 0;
+//        for(int j = 1;j<=month; j++){
+//                int temp = lastDay(year, month);
+//                monthSum += (temp % 7);
+//                }
+
 public class calMain {
     public static void main(String[] args) {
-
-
-
-//        System.out.println(" 일 월 화 수 목 금 토");
-//        System.out.println("--------------------");
-//        System.out.println(" 1  2  3  4  5  6  7");
-//        System.out.println(" 8  9 10 11 12 13 14");
-//        System.out.println("15 16 17 18 19 20 21");
-//        System.out.println("22 23 24 25 26 27 28");
-
-//        System.out.println("두 수를 입력하세요");
-//        Scanner scan = new Scanner(System.in);
-//        String inputValue = scan.nextLine();
-//        String[] splitValue = inputValue.split(" ");
-//        int first = Integer.parseInt(splitValue[0]);
-//        int second = Integer.parseInt(splitValue[1]);
-//        System.out.println("두수의 합은"+(first+second)+"입니다");
+        PrintCalendar printCalendar = new PrintCalendar();
+        printCalendar.inputYearMonth();
 
     }
 }
