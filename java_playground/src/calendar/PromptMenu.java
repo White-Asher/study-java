@@ -1,9 +1,10 @@
 package calendar;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class PromptMenu {
-    public void menu() {
+    public void menu() throws ParseException {
         int menuSwitch = 1;
         while(menuSwitch == 1) {
             System.out.println("=============");
@@ -16,13 +17,15 @@ public class PromptMenu {
             System.out.print("명령을 입력하세요 (1, 2, 3, h, q): ");
 
             PrintCalendar printCalendar = new PrintCalendar();
+            Schedule schedule = new Schedule();
 
             Scanner scan = new Scanner(System.in);
             String menuChoiceVal;
             menuChoiceVal = scan.nextLine();
             switch (menuChoiceVal) {
                 case "1":
-
+                    schedule.registerMain();
+                    break;
                 case "2":
 
                 case "3":
