@@ -27,7 +27,7 @@ public class PromptMenu {
                     schedule.registerMain();
                     break;
                 case "2":
-
+                    schedule.searchMain();
                 case "3":
                     printCalendar.inputYearMonth();
                     break;
