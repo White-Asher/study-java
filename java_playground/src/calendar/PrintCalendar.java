@@ -20,14 +20,10 @@ public class PrintCalendar{
 
             if(month>=1 && month <=12){
                 int firstYearDay = yearFirstDay(year);
-//                System.out.println("yearFirstDay: "+ firstYearDay);
                 int firstMonthDay = monthFirstDay(year, month, firstYearDay);
-//                System.out.println("firstMonthDay: "+firstMonthDay);
                 int monthLength = lastDay(year, month);
-//                System.out.println("monthLength: "+monthLength);
                 print(year, month, firstMonthDay, monthLength);
-            }
-             else {
+            } else {
                 System.out.println("잘못 입력하였습니다.");
             }
         }
