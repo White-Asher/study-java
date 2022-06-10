@@ -1,4 +1,4 @@
-package chapter_7_Problem;
+package chapter_7_Problem.pro5;
 
 class B{
     void averageScore(double...i){
